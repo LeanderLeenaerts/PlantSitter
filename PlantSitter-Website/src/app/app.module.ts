@@ -11,10 +11,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MainPageComponent } from './main-page/main-page.component';
+import { MainUserPageComponent } from './main-user-page/main-user-page.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainPageComponent,
+    MainUserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
