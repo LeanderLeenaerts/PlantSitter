@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "plantsitter-5e5ae": {
+      "hosting": {
+        "PlantSitter-website": [
+          "plantsitter-5e5ae"
+        ]
+      }
+    }
+  }
+}
