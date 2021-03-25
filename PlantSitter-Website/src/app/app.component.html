@@ -1,7 +1,22 @@
 <mat-toolbar color="primary">
   <mat-icon>spa</mat-icon>
   <span style="padding-left: 1vw">PlantSitter</span>
+  <span style="right: 0; padding-right: 10px; position: absolute;">login btn</span>
 </mat-toolbar>
+
+<div *ngIf="auth.user$ | async as user; else login">
+  <pre>{{ user | json }}</pre>
+  <hr>
+  <button class="button" (click)="auth.signOut()">
+    Sign out
+  </button>
+</div>
+
+<ng-template #login>
+  <button class="button" (click)="auth.googleSignin()">
+    Sign in with Google
+  </button>
+</ng-template>
 
 <app-main-page></app-main-page>
 <app-main-user-page></app-main-user-page>
