@@ -1,21 +1,32 @@
 <mat-toolbar color="primary">
   <mat-icon>spa</mat-icon>
   <span style="padding-left: 1vw">PlantSitter</span>
-  <span style="right: 0; padding-right: 10px; position: absolute;">login btn</span>
+
+  <div *ngIf="auth.user$ | async as user; else login" class="login-container">
+
+    <div class="user-photo" style="background-image: url({{ user.photoURL }})"></div>
+
+    <span class="user-name">{{ user.displayName }}</span>
+
+    <button mat-raised-button color="secondary" (click)="auth.signOut()">
+      Sign out
+    </button>
+
+  </div>
+
 </mat-toolbar>
 
-<div *ngIf="auth.user$ | async as user; else login">
+<div *ngIf="auth.user$ | async as user">
   <pre>{{ user | json }}</pre>
-  <hr>
-  <button class="button" (click)="auth.signOut()">
-    Sign out
-  </button>
 </div>
 
 <ng-template #login>
-  <button class="button" (click)="auth.googleSignin()">
-    Sign in with Google
-  </button>
+  <div class="login-container">
+    <button mat-raised-button color="secondary" (click)="auth.googleSignin()">
+      Sign in with Google
+    </button>
+  </div>
+  
 </ng-template>
 
 <app-main-page></app-main-page>
