@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Item } from '../models/Item'; 
+import { User } from '../models/User'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReadService {
 
-  itemsCollection!: AngularFirestoreCollection<Item>;
-  items: Observable<any[]>
+  userCollection!: AngularFirestoreCollection<User>;
+  users: Observable<any[]>
 
 
   constructor(public afs: AngularFirestore) 
   {
-    this.items = this.afs.collection('users').valueChanges();
+    this.users = this.afs.collection('users').valueChanges();
   }
 
-  getItems()
+  getUsers()
   {
-    return this.items;
+    return this.users;
   }
 }
 

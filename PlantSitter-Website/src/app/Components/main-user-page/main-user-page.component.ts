@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadService } from "../../services/read.service";
+import { User } from "../../models/User";
 
 @Component({
   selector: 'app-main-user-page',
@@ -8,10 +9,15 @@ import { ReadService } from "../../services/read.service";
 })
 export class MainUserPageComponent implements OnInit {
 
+  users!:User[];
+
   constructor(private readService:ReadService) { }
 
   ngOnInit(): void {
-    this.readService.getItems().subscribe(items =>{console.log(items);})
+    this.readService.getUsers().subscribe(getBack =>{
+      console.log(getBack);
+      this.users = getBack;
+    })
   }
 
   onButtonClick(){
