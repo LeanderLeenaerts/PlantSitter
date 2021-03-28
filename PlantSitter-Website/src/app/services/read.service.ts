@@ -3,19 +3,18 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { Item } from '../models/Item'; 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ReadService {
 
   itemsCollection!: AngularFirestoreCollection<Item>;
-  items: Observable<Item[]>
+  items: Observable<any[]>
 
 
   constructor(public afs: AngularFirestore) 
   {
-      this.items = this.afs.collection('greenhouses').valueChanges();
+    this.items = this.afs.collection('users').valueChanges();
   }
 
   getItems()
