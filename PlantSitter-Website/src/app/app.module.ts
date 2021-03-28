@@ -11,11 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { MainPageComponent } from './main-page/main-page.component';
-import { MainUserPageComponent } from './main-user-page/main-user-page.component';
+import { MainPageComponent } from './Components/main-page/main-page.component';
+import { MainUserPageComponent } from './Components/main-user-page/main-user-page.component';
 import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+
+import { ReadService } from './services/read.service';      //L
 
 @NgModule({
   declarations: [
@@ -35,7 +37,7 @@ import { MatCardModule } from '@angular/material/card';
     MatGridListModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [ReadService],     //L
   bootstrap: [AppComponent]
 })
 export class AppModule { }
