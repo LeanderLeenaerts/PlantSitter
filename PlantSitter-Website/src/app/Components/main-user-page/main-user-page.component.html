@@ -1,4 +1,19 @@
-<p>main-user-page works!</p>
+<button mat-raised-button color="accent" (click)="onButtonClick()">
+  <mat-icon>add</mat-icon> Add Greenhouse
+</button>
+
+<div *ngIf = "users !== undefined">
+  <div *ngIf="users.length > 0;else noGreenhouses">
+    <ul *ngFor = "let user of users">
+      <li><strong>{{user.displayName}}:</strong> {{user.email}}</li>
+    </ul>
+  </div>
+
+  <ng-template #noGreenhouses>
+    <hr>
+    <h5>There are no greenhouses to list, add one to get started!</h5>
+  </ng-template>
+</div> 
 
 <mat-grid-list cols="2" rowHeight="50%"  style="max-width: 100%; " >
     <mat-grid-tile>
@@ -66,28 +81,3 @@
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
-
-<button mat-raised-button color="primary" (click)="onButtonClick()">Add Greenhouse</button>
-
-
-
-<!-- <div *ngIf = "users !== undefined">
-<div *ngIf="users?.length > 0;else noUsers">
-  <ul *ngFor = "let user of users">
-    <li><strong>{{user.displayName}}:</strong> {{user.email}}</li>
-
-  </ul>
-</div>
-<ng-template #noUsers>
-  <hr>
-  <h5>There are no users to list</h5>
-</ng-template>
-
-
-</div> -->
- 
-
-
-
-
-

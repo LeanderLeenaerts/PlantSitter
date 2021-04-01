@@ -16,9 +16,9 @@
 
 </mat-toolbar>
 
-<div *ngIf="auth.user$ | async as user">
+<!--div *ngIf="auth.user$ | async as user">
   <pre>{{ user | json }}</pre>
-</div>
+</div-->
 
 <ng-template #login>
   <div class="login-container">
@@ -29,5 +29,4 @@
   
 </ng-template>
 
-<app-main-page></app-main-page>
 <app-main-user-page></app-main-user-page>
