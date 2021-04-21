@@ -9,6 +9,12 @@
 #define SoilHumidityPin A1
 #define DHT11Pin 7
 
+//input voltage
+#define Vin 5
+
+//photoresistor resistance divider value 10k
+#define Rdiv 10000
+
 //defining the dht object
 DHT dht(DHT11Pin, DHT11);
 
@@ -63,11 +69,25 @@ void loop()
   Serial.print(dht.readHumidity());
   Serial.print("#");
 
-  //photoresistor in analog
+  //photoresistor in lumens
   //Serial.print("%  LightIntensity = ");
-  Serial.println(lightSensorValue);
+  Serial.println(sensorRawToLumens(lightSensorValue));
 
   //total delay of 2.1 seconds between readings
   delay(2000);
   
+}
+
+//function used to convert the analog value read from the photoresistor pin to lumens
+int sensorRawToLumens(float lightSensorValue)
+{
+  //conversion analog to voltage
+  float Vout = lightSensorValue * (Vin / float(1023));
+
+  //conversion voltage to resistance
+  float photoResistance = (Rdiv * (Vin - Vout)) / Vout; 
+
+  //conversion resitance to lumen
+  int lumens = 500 / (photoResistance / 1000); 
+  return lumens;
 }
