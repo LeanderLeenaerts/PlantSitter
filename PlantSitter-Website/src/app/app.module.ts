@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ReadService } from './services/read.service';
 import { GreenhousePageComponent } from './Components/greenhouse-page/greenhouse-page.component';
 import { PlantPageComponent } from './Components/plant-page/plant-page.component';      //L
+import { Routes } from '@angular/router';
+
 
 @NgModule({
   declarations: [
