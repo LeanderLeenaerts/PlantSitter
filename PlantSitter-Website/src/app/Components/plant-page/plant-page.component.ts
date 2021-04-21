@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadService } from "../../services/read.service";
 import { Plant } from "../../models/Plant";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-plant-page',
@@ -11,7 +12,7 @@ export class PlantPageComponent implements OnInit {
 
   plants!:Plant[];
   
-  constructor(private readService:ReadService) { }
+  constructor(private readService:ReadService, private route:Router) { }
 
   ngOnInit(): void {
     this.readService.getPlants().subscribe(getBack =>{
@@ -22,6 +23,11 @@ export class PlantPageComponent implements OnInit {
 
   onButtonClick(){
     console.log(this.plants);
+  }
+
+  goBack()
+  {
+    this.route.navigate(['/greenhouse-path']);
   }
 
 }

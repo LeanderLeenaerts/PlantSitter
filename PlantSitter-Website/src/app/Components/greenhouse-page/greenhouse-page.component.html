@@ -25,7 +25,7 @@
                 </p>
               </mat-card-content>
               <mat-card-actions>
-                <button mat-button>SELECTEER</button>
+                <button mat-button (click)="goPlants()">SELECTEER</button>
               </mat-card-actions>
         </mat-card>
     </mat-grid-tile>
@@ -36,7 +36,6 @@
 <button mat-raised-button color="accent" (click)="onButtonClick()">
   <mat-icon>add</mat-icon> Add Greenhouse
 </button>
-
 
 <!-- <br>
 <h5>SEPERATIOn</h5>
