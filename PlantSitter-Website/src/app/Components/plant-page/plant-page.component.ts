@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReadService } from "../../services/read.service";
-import { Plant } from "../../models/plant";
+import { Plant } from "../../models/Plant";
 
 @Component({
   selector: 'app-plant-page',
