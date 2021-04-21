@@ -1,0 +1,109 @@
+ 
+  <!-- <div *ngIf = "greenhouses != undefined">
+    <div *ngIf="greenhouses.length > 0;else noGreenhouses">
+      <ul *ngFor = "let greenhouse of greenhouses">
+        <li><strong>{{greenhouse.Name}}: </strong>{{greenhouse.Description}} </li>
+      </ul>
+    </div>
+  
+    <ng-template #noGreenhouses>
+      <hr>
+      <h5>There are no greenhouses to list, add one to get started!</h5>
+    </ng-template>
+  </div>  -->
+<br>  
+  <mat-grid-list cols="{{greenhouses.length/2}}" rowHeight="50%"  style="max-width: 100%; " >
+    <mat-grid-tile *ngFor = "let greenhouse of greenhouses">
+        <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+            <mat-card-header>
+                <mat-card-title>{{greenhouse.Name}}</mat-card-title>
+            </mat-card-header> 
+            <img style="object-fit: contain; height: 300px;" mat-card-image src="https://www.familyfoodgarden.com/wp-content/uploads/2017/10/Mini-Greenhouse.jpg" alt="Photo of a Shiba Inu"> 
+            <mat-card-content>
+                <p>
+                  {{greenhouse.Description}}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>SELECTEER</button>
+              </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<br>  
+
+<button mat-raised-button color="accent" (click)="onButtonClick()">
+  <mat-icon>add</mat-icon> Add Greenhouse
+</button>
+
+
+<!-- <br>
+<h5>SEPERATIOn</h5>
+
+  <mat-grid-list cols="2" rowHeight="50%"  style="max-width: 100%; " >
+      <mat-grid-tile>
+          <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+              <mat-card-header>
+                  <mat-card-title>Greenhouse 1</mat-card-title>
+              </mat-card-header> 
+              <img style="object-fit: contain; height: 300px;" mat-card-image src="https://www.familyfoodgarden.com/wp-content/uploads/2017/10/Mini-Greenhouse.jpg" alt="Photo of a Shiba Inu"> 
+              <mat-card-content>
+                  <p>
+                    Greenhouse 1 dat in de living staat
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>SELECTEER</button>
+                </mat-card-actions>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card (click)="onButtonClick()" style="width: 50%;">  
+              <mat-card-header>
+                  <mat-card-title>Greenhouse 1</mat-card-title>
+              </mat-card-header> 
+              <img style="object-fit: contain; height: 300px;" mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> 
+              <mat-card-content>
+                  <p>
+                    Greenhouse 1 dat in de living staat
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>SELECTEER</button>
+                </mat-card-actions>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+              <mat-card-header>
+                  <mat-card-title>Greenhouse 1</mat-card-title>
+              </mat-card-header> 
+              <img style="object-fit: contain; height: 300px;" mat-card-image src="http://images4.fanpop.com/image/photos/18300000/Something-Random-random-18360097-597-576.jpg" alt="Photo of a Shiba Inu"> 
+              <mat-card-content>
+                  <p>
+                    Greenhouse 2 dat in de slaapkamer staat
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>SELECTEER</button>
+                </mat-card-actions>
+          </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+              <mat-card-header>
+                  <mat-card-title>Greenhouse 1</mat-card-title>
+              </mat-card-header> 
+              <img style="object-fit: contain; height: 300px;" mat-card-image src="http://moelane.com/wp-content/uploads/2011/07/monkey3.jpg" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                  <p>
+                    Greenhouse 3 dat in de tuin staat
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>SELECTEER</button>
+                </mat-card-actions>
+          </mat-card>
+      </mat-grid-tile>
+  </mat-grid-list> -->

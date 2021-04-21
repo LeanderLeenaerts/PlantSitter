@@ -17,13 +17,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 
-import { ReadService } from './services/read.service';      //L
+import { ReadService } from './services/read.service';
+import { GreenhousePageComponent } from './Components/greenhouse-page/greenhouse-page.component';      //L
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
-    MainUserPageComponent
+    MainUserPageComponent,
+    GreenhousePageComponent
   ],
   imports: [
     BrowserModule,
