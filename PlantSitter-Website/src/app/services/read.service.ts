@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { User } from '../models/User'; 
 import { Greenhouse } from '../models/Greenhouse';
+import { Plant } from '../models/plant';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,15 @@ export class ReadService {
   greenhouseCollection!: AngularFirestoreCollection<Greenhouse>;
   greenhouses: Observable<any[]>;
 
+  plantCollection!: AngularFirestoreCollection<Plant>
+  plants: Observable<any[]>
+
 
   constructor(public afs: AngularFirestore) 
   {
     this.users = this.afs.collection('users').valueChanges();
     this.greenhouses = this.afs.collection('users/oWWajW5e8paKINCNuW5WuPN7lhJ2/Greenhouses').valueChanges();
+    this.plants = this.afs.collection('users/oWWajW5e8paKINCNuW5WuPN7lhJ2/Greenhouses/FlW10npLhWBABvxUp0Fg/Plants').valueChanges();
   }
 
   getUsers()
@@ -30,6 +35,11 @@ export class ReadService {
   getGreenhouses()
   {
     return this.greenhouses;
+  }
+
+  getPlants()
+  {
+    return this.plants
   }
 
 }

@@ -1,0 +1,40 @@
+ 
+  <!-- <div *ngIf = "plants != undefined">
+    <div *ngIf="plants.length > 0;else noplants">
+      <ul *ngFor = "let plant of plants">
+        <li><strong>{{plant.Name}} </strong> </li>
+      </ul>
+    </div>
+  
+    <ng-template #noplants>
+      <hr>
+      <h5>There are no plants to list, add one to get started!</h5>
+    </ng-template>
+  </div>  -->
+
+  <br>  
+  
+  <mat-grid-list cols="{{plants.length/2}}" rowHeight="50%"  style="max-width: 100%; " >
+    <mat-grid-tile *ngFor = "let plant of plants">
+        <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+            <mat-card-header>
+                <mat-card-title>{{plant.Name}}</mat-card-title>
+            </mat-card-header> 
+            <img style="object-fit: contain; height: 300px;" mat-card-image src="https://www.familyfoodgarden.com/wp-content/uploads/2017/10/Mini-Greenhouse.jpg" alt="Photo of a Shiba Inu"> 
+            <mat-card-content>
+                <p>
+                  DESCRIPTION
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>SELECTEER</button>
+              </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<br>  
+
+<button mat-raised-button color="accent" (click)="onButtonClick()">
+  <mat-icon>add</mat-icon> Add Plant
+</button>
