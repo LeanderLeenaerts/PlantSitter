@@ -73,8 +73,8 @@ void loop()
   //Serial.print("%  LightIntensity = ");
   Serial.println(sensorRawToLumens(lightSensorValue));
 
-  //total delay of 2.1 seconds between readings
-  delay(2000);
+  //total delay of 5.1 seconds between readings
+  delay(5000);
   
 }
 
