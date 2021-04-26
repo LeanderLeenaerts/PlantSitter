@@ -115,16 +115,10 @@ def main():
                     'Light_intensity': fields[3] + ' lumens'
                 }
 
-                #check if the temperature if in the right limits
-                emergency = checkSensorValue(float(fields[1]), float(keyValues['MinTemperature']), float(keyValues['MaxTemperature']))
-
-                #check if the humidity if in the right limits
-                emergency = checkSensorValue(float(fields[2]), float(keyValues['MinHumidity']), float(keyValues['MaxHumidity']))
-
-                #check if the light intensity if in the right limits
-                emergency = checkSensorValue(float(fields[3]), float(keyValues['MinLumens']), float(keyValues['MaxLumens']))
-
-                #check if the temperature if in the right limits
-                emergency = checkSensorValue(float(fields[0]), float(keyValues['MinSoilHumidity']), float(keyValues['MaxSoilHumidity']))
-
+                #check if the temperature, humidity, soil humidity and light intensity if in the right limits
+                if checkSensorValue(float(fields[1]), float(keyValues['MinTemperature']), float(keyValues['MaxTemperature'])) == True or checkSensorValue(float(fields[2]), float(keyValues['MinHumidity']), float(keyValues['MaxHumidity'])) == True or checkSensorValue(float(fields[3]), float(keyValues['MinLumens']), float(keyValues['MaxLumens'])) == True or checkSensorValue(float(fields[0]), float(keyValues['MinSoilHumidity']), float(keyValues['MaxSoilHumidity'])) == True:
+                    emergency = True
+                else:
+                    emergency = False
+                print(emergency)
 main()
