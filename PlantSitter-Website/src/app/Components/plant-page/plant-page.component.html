@@ -1,18 +1,22 @@
- 
-  <!-- <div *ngIf = "plants != undefined">
+<div>
+  <button mat-mini-fab color="accent" (click)="goBack()" style="margin: 10px">
+    <mat-icon>arrow_back</mat-icon>
+  </button> 
+  
+  <button mat-raised-button color="accent" (click)="onButtonClick()" style="margin: 10px">
+    <mat-icon>add</mat-icon> Add Plant
+  </button>
+</div>
+
+<div *ngIf = "plants != undefined">
     <div *ngIf="plants.length > 0;else noplants">
-      <ul *ngFor = "let plant of plants">
-        <li><strong>{{plant.Name}} </strong> </li>
-      </ul>
     </div>
   
     <ng-template #noplants>
       <hr>
       <h5>There are no plants to list, add one to get started!</h5>
     </ng-template>
-  </div>  -->
-
-  <br>  
+</div>
   
   <mat-grid-list cols="{{plants.length/2}}" rowHeight="50%"  style="max-width: 100%; " >
     <mat-grid-tile *ngFor = "let plant of plants">
@@ -32,15 +36,4 @@
     </mat-grid-tile>
 </mat-grid-list>
 
-<br>  
-
-<button mat-raised-button color="accent" (click)="onButtonClick()">
-  <mat-icon>add</mat-icon> Add Plant
-</button>
-
 <br>
-<br>
-
-<button mat-raised-button color="accent" (click)="goBack()">
-  <mat-icon>home</mat-icon> Go Back
-</button>
