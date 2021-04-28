@@ -1,0 +1,14 @@
+<mat-form-field>
+  <h3>Name of greenhouse</h3>
+  <input matInput cdkFocusInitial [(ngModel)]="data.gh.Name" />
+</mat-form-field>
+
+<mat-form-field>
+  <h3>Description</h3>
+  <textarea matInput [(ngModel)]="data.gh.Description"></textarea>
+</mat-form-field>
+
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="{ gh: data.gh }">OK</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>
