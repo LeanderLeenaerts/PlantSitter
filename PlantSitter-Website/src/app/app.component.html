@@ -2,6 +2,18 @@
   <mat-icon>spa</mat-icon>
   <span style="padding-left: 1vw">PlantSitter</span>
 
+  <!-- Leander -->
+  <!-- <nav>
+    <ul>
+      <li><a routerLink="/greenhouse-path" routerLinkActive="active">Greenhouses</a></li>
+      <li><a routerLink="/plant-path" routerLinkActive="active">Plants</a></li>
+    </ul>
+  </nav> -->
+
+
+   <!-- Leander -->
+
+
   <div *ngIf="auth.user$ | async as user; else login" class="login-container">
 
     <div class="user-photo" style="background-image: url({{ user.photoURL }})"></div>
@@ -16,9 +28,9 @@
 
 </mat-toolbar>
 
-<div *ngIf="auth.user$ | async as user">
+<!--div *ngIf="auth.user$ | async as user">
   <pre>{{ user | json }}</pre>
-</div>
+</div-->
 
 <ng-template #login>
   <div class="login-container">
@@ -29,5 +41,7 @@
   
 </ng-template>
 
-<app-main-page></app-main-page>
-<app-main-user-page></app-main-user-page>
+<router-outlet></router-outlet>
+
+<!-- <app-greenhouse-page></app-greenhouse-page>
+<app-plant-page></app-plant-page> -->
