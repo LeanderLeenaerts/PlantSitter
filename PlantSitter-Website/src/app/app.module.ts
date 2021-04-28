@@ -21,7 +21,11 @@ import { ReadService } from './services/read.service';
 import { GreenhousePageComponent } from './Components/greenhouse-page/greenhouse-page.component';
 import { PlantPageComponent } from './Components/plant-page/plant-page.component';      //L
 import { Routes } from '@angular/router';
+import { GhDialogComponent } from './gh-dialog/gh-dialog.component';
 
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { Routes } from '@angular/router';
     MainPageComponent,
     MainUserPageComponent,
     GreenhousePageComponent,
-    PlantPageComponent
+    PlantPageComponent,
+    GhDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ import { Routes } from '@angular/router';
     AngularFirestoreModule,
     MatButtonModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule
   ],
   providers: [ReadService],     //L
   bootstrap: [AppComponent]
