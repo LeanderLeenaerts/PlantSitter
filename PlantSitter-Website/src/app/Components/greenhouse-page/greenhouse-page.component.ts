@@ -4,23 +4,30 @@ import { Greenhouse } from "../../models/Greenhouse";
 import {Router} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
-import { GhDialogComponent, GhDialogData, GhDialogResult } from "../../gh-dialog//gh-dialog.component";
+import { GhDialogComponent, GhDialogResult } from "../../gh-dialog//gh-dialog.component";
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-greenhouse-page',
   templateUrl: './greenhouse-page.component.html',
-  styleUrls: ['./greenhouse-page.component.css']
+  styleUrls: ['./greenhouse-page.component.css'],
+  providers:  [ AuthService ]
 })
 export class GreenhousePageComponent implements OnInit {
 
   greenhouses: Greenhouse[] = [];
+  greenhouseCollection!: AngularFirestoreCollection<Greenhouse>;
   
   constructor(
     private readService:ReadService, 
     private route:Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public auth: AuthService,
+    private  afs: AngularFirestore
   ) 
-  { }
+  { 
+  }
 
   ngOnInit(): void {
     this.readService.getGreenhouses().subscribe(getBack =>{
@@ -46,6 +53,14 @@ export class GreenhousePageComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((result: GhDialogResult) => this.greenhouses.push(result.gh));
+    dialogRef.afterClosed().subscribe((result: GhDialogResult) => {
+      this.greenhouses.push(result.gh);
+      this.greenhouseCollection = this.afs.collection('users/oWWajW5e8paKINCNuW5WuPN7lhJ2/Greenhouses');
+      this.greenhouseCollection.add(result.gh);
+    });
+  }
+
+  deleteGreenhouse() {
+
   }
 }

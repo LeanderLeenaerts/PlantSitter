@@ -37,11 +37,10 @@ export class AuthService {
 
    async googleSignin() {
      const provider = new firebase.auth.GoogleAuthProvider();
-     //const creds = await this.afAuth.signInWithPopup(provider);
-     //return this.updateUserData(creds.user);
      const cred = await this.afAuth.signInWithPopup(provider);
 
      if (cred.user != null) {
+      localStorage.setItem('isLoggedIn', 'true');
       return this.updateUserData(cred.user.uid, cred.user.email, cred.user.displayName, cred.user.photoURL);
      }
    }
