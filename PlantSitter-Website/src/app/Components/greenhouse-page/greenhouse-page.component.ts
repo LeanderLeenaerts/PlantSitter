@@ -54,7 +54,11 @@ export class GreenhousePageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: GhDialogResult) => {
-      this.greenhouses.push(result.gh);
+      if (!result.gh.Name) return; //Don't add blank entries
+
+      this.greenhouses.push(result.gh); //insert locally
+
+      //insert to firebase
       this.greenhouseCollection = this.afs.collection('users/oWWajW5e8paKINCNuW5WuPN7lhJ2/Greenhouses');
       this.greenhouseCollection.add(result.gh);
     });
