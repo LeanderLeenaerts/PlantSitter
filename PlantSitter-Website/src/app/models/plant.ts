@@ -15,4 +15,3 @@ export interface Plant
   Soil_Humidity:String;
   Temperature:String;
 }
-

@@ -3,7 +3,7 @@
     <mat-icon>arrow_back</mat-icon>
   </button> 
   
-  <button mat-raised-button color="accent" (click)="onButtonClick()" style="margin: 10px">
+  <button mat-raised-button color="accent" (click)="addPlant()" style="margin: 10px">
     <mat-icon>add</mat-icon> Add Plant
   </button>
 </div>
@@ -18,32 +18,32 @@
     </ng-template>
 </div>
   
-  <mat-grid-list cols="{{plants.length/2}}" rowHeight="50%"  style="max-width: 100%; " >
+  <mat-grid-list cols="{{plants.length/2}}" rowHeight="60%"  style="max-width: 100%; " >
     <mat-grid-tile *ngFor = "let plant of plants">
-        <mat-card (click)="onButtonClick()" style="width: 50%;"> 
+        <mat-card (click)="onButtonClick()" style="width: 65%;"> 
             <mat-card-header>
                 <mat-card-title>{{plant.Name}}</mat-card-title>
             </mat-card-header> 
             
             <mat-card-content>
               <ul>
-                <li>Message : {{plant.Message}}</li>
+                <li *ngIf="plant.Message">Message : {{plant.Message}}</li>
                 <br>
                 <li>Temperature : {{plant.Temperature}}</li>
-                <li>MinTemperature : {{plant.MinTemperature}}</li>
-                <li>MaxTemperature : {{plant.MaxTemperature}}</li>
+                <li>Min Temperature : {{plant.MinTemperature}}</li>
+                <li>Max Temperature : {{plant.MaxTemperature}}</li>
                 <br>
                 <li>Light : {{plant.Light_Intensity}}</li>
-                <li>MinLumens : {{plant.MinLumens}}</li>
-                <li>MaxLumens : {{plant.MaxLumens}}</li>
+                <li>Min Lumens : {{plant.MinLumens}}</li>
+                <li>Max Lumens : {{plant.MaxLumens}}</li>
                 <br>
                 <li>Humidity : {{plant.Humidity}}</li>
-                <li>MinHumidity : {{plant.MinHumidity}}</li>
-                <li>MaxHumidity : {{plant.MaxHumidity}}</li>
+                <li>Min Humidity : {{plant.MinHumidity}}</li>
+                <li>Max Humidity : {{plant.MaxHumidity}}</li>
                 <br>
-                <li>Soil_Humidity : {{plant.Soil_Humidity}}</li>
-                <li>MinSoilHumidity : {{plant.MinSoilHumidity}}</li>
-                <li>MaxSoilHumidity : {{plant.MaxSoilHumidity}}</li>
+                <li>Soil Humidity : {{plant.Soil_Humidity}}</li>
+                <li>Min Soil Humidity : {{plant.MinSoilHumidity}}</li>
+                <li>Max Soil Humidity : {{plant.MaxSoilHumidity}}</li>
               </ul>
             </mat-card-content>
         </mat-card>

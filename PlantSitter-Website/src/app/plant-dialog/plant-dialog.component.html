@@ -1,0 +1,54 @@
+<h3><mat-icon>filter_vintage</mat-icon> Add a new plant:</h3>
+<h5>All temperature values are in Celcius</h5>
+
+<mat-form-field>
+    <mat-label>Plant name</mat-label>
+    <input matInput cdkFocusInitial [(ngModel)]="data.plant.Name" />
+</mat-form-field>
+
+<h3>Enviroment:</h3>
+
+<mat-form-field>
+    <mat-label><mat-icon>thermostat</mat-icon> Max Temperature</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MaxTemperature">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>thermostat</mat-icon> Min Temperature</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MinTemperature">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>wb_sunny</mat-icon> Max Lumens</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MaxLumens">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>wb_sunny</mat-icon> Min Lumens</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MinLumens">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>grain</mat-icon> Max Humidity</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MaxHumidity">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>grain</mat-icon> Min Humidity</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MinHumidity">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>grass</mat-icon> Max Soil Humidity</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MaxSoilHumidity">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label><mat-icon>grass</mat-icon> Min Soil Humidity</mat-label>
+    <input type="number" matInput [(ngModel)]="data.plant.MinSoilHumidity">
+</mat-form-field>
+
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="{ plant: data.plant }">OK</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+</div>

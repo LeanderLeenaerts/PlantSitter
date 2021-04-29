@@ -26,6 +26,7 @@ import { GhDialogComponent } from './gh-dialog/gh-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { PlantDialogComponent } from './plant-dialog/plant-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MainUserPageComponent,
     GreenhousePageComponent,
     PlantPageComponent,
-    GhDialogComponent
+    GhDialogComponent,
+    PlantDialogComponent
   ],
   imports: [
     BrowserModule,
