@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PlantDialogComponent } from './plant-dialog/plant-dialog.component';
+import { MatSliderModule } from '@angular/material/slider'; 
+import {MatProgressBarModule} from '@angular/material/progress-bar'
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { PlantDialogComponent } from './plant-dialog/plant-dialog.component';
     MatCardModule,
     MatDialogModule,
     FormsModule,
+    MatSliderModule,
+    MatProgressBarModule,
     MatInputModule
   ],
   providers: [ReadService],     //L

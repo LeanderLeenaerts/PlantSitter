@@ -1,6 +1,16 @@
+<script type="text/javascript">
+var app = angular.module('myApp', []);
+
+app.filter('num', function() {
+    return function(input) {
+      return parseInt(input, 10);
+    }
+});
+</script>
+
 <div>
   <button mat-mini-fab color="accent" (click)="goBack()" style="margin: 10px">
-    <mat-icon>arrow_back</mat-icon>
+    <mat-icon style="padding-right: 0px;">arrow_back</mat-icon>
   </button> 
   
   <button mat-raised-button color="accent" (click)="addPlant()" style="margin: 10px">
@@ -18,36 +28,44 @@
     </ng-template>
 </div>
   
-  <mat-grid-list cols="{{plants.length/2}}" rowHeight="60%"  style="max-width: 100%; " >
-    <mat-grid-tile *ngFor = "let plant of plants">
-        <mat-card (click)="onButtonClick()" style="width: 65%;"> 
-            <mat-card-header>
-                <mat-card-title>{{plant.Name}}</mat-card-title>
-            </mat-card-header> 
-            
-            <mat-card-content>
-              <ul>
-                <li *ngIf="plant.Message">Message : {{plant.Message}}</li>
-                <br>
-                <li>Temperature : {{plant.Temperature}}</li>
-                <li>Min Temperature : {{plant.MinTemperature}}</li>
-                <li>Max Temperature : {{plant.MaxTemperature}}</li>
-                <br>
-                <li>Light : {{plant.Light_Intensity}}</li>
-                <li>Min Lumens : {{plant.MinLumens}}</li>
-                <li>Max Lumens : {{plant.MaxLumens}}</li>
-                <br>
-                <li>Humidity : {{plant.Humidity}}</li>
-                <li>Min Humidity : {{plant.MinHumidity}}</li>
-                <li>Max Humidity : {{plant.MaxHumidity}}</li>
-                <br>
-                <li>Soil Humidity : {{plant.Soil_Humidity}}</li>
-                <li>Min Soil Humidity : {{plant.MinSoilHumidity}}</li>
-                <li>Max Soil Humidity : {{plant.MaxSoilHumidity}}</li>
-              </ul>
-            </mat-card-content>
-        </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+<mat-grid-list cols="{{plants.length/2}}" rowHeight="70%"  style="max-width: 100%; " >
+  <mat-grid-tile *ngFor = "let plant of plants">
+      <mat-card (click)="onButtonClick()" style="width: 75%;"> 
+          <mat-card-header>
+              <mat-card-title><mat-icon>filter_vintage</mat-icon>  {{plant.Name}}</mat-card-title>
+          </mat-card-header> 
+          
+          <mat-card-content>
+            <mat-card *ngIf="plant.Message && plant.Message == 'Parameters are out of reach!'" style="color:white; background-color:orange;">
+              <mat-icon style="font-size: 22px;">warning</mat-icon>{{plant.Message}}
+            </mat-card>
+            <br>
 
-<br>
+            <h3><mat-icon>thermostat</mat-icon>Temperature</h3>
+            {{plant.Temperature}} <br>
+            (min: {{plant.MinTemperature}} - max: {{plant.MaxTemperature}})
+            <br>
+            <br>
+
+            <h3><mat-icon>wb_sunny</mat-icon>Light</h3>
+            {{plant.Light_Intensity}} <br>
+            (min: {{plant.MinLumens}} - max: {{plant.MaxLumens}})
+            <br>
+            <br>
+
+            <h3><mat-icon>water_drop</mat-icon>Humidity</h3>
+            {{plant.Humidity}} <br>
+            (min: {{plant.MinHumidity}} - max: {{plant.MaxHumidity}})
+            <br>
+            <br>
+
+            <h3><mat-icon>grass</mat-icon>Soil</h3>
+            {{plant.Soil_Humidity}} <br>
+            (min: {{plant.MinSoilHumidity}} - max: {{plant.MaxSoilHumidity}})
+            <br>
+            <br>
+
+          </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

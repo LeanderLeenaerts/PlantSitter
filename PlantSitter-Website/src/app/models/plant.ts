@@ -5,13 +5,13 @@ export interface Plant
   MaxHumidity:String;
   MaxLumens:String;
   MaxSoilHumidity:String;
-  MaxTemperature:String;
+  MaxTemperature:number;
   Message:String;
   MinHumidity:String;
   MinLumens:String;
   MinSoilHumidity:String;
-  MinTemperature:String;
+  MinTemperature:number;
   Name:String;
   Soil_Humidity:String;
-  Temperature:String;
+  Temperature:number;
 }

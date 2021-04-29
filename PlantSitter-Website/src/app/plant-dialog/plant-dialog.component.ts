@@ -13,7 +13,13 @@ export class PlantDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<PlantDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: PlantDialogData
-  ) {}
+  ) 
+  {
+    this.data.plant.Light_Intensity = "Not recorded yet";
+    this.data.plant.Soil_Humidity = "Not recorded yet";
+    this.data.plant.Humidity = "Not recorded yet";
+    this.data.plant.Temperature = 0;
+  }
 
   cancel(): void {
     //this.data.plant.Name = this.backup.Name;
